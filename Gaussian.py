@@ -96,3 +96,13 @@ class Gaussian():
         plt.show()
 
         return x, y
+
+    def __add__(self, other):
+        result = Gaussian()
+        result.mean = self.mean + other.mean
+        result.stddev = math.sqrt(self.stddev ** 2 + other.stddev ** 2)
+
+        return result
+
+    def __repr__(self):
+        return "mean {}, standard deviation {}".format(self.mean, self.stddev)
